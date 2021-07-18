@@ -15,7 +15,7 @@
     <description>Demo project for Spring Boot</description>
     <properties>
         <java.version>1.8</java.version>
-             <sonar.projectKey>emispanchal_security</sonar.projectKey>
+            <sonar.projectKey>emispanchal_security</sonar.projectKey>
   <sonar.organization>emispanchal</sonar.organization>
   <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     </properties>
