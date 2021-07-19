@@ -34,15 +34,7 @@ pipeline{
                  sh 'docker build -t emispanchal/my_app:1.0.0 .'
              }
         }
-         stage('Push Docker Image'){
-             steps {
-                 withCredentials([string(credentialsId: 'docker_pwd', variable: 'DockerHubPwd')]) {
-                 sh 'docker login -u emispanchal -p ${DockerHubPwd}'
-        }
-                 sh 'docker push emispanchal/my_app:1.0.0'
-             }
-         }
-
+         
 
 }
 
