@@ -2,10 +2,8 @@ pipeline{
     agent any
     options { 
         quietPeriod(30) 
-        buildDiscarder(logRotator(numToKeepStr: '3',daysToKeepStr: '3'))
-    }
-    
-    }
+     }
+   
     triggers {
         pollSCM('* * * * *')
     }
