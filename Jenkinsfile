@@ -38,31 +38,20 @@ pipeline {
                 sh 'mvn compile'
             }
         }
-       stage('Static Code Analaysis') {
-            steps {
-                withSonarQubeEnv(credentialsId: 'sonar', installationName: 'sonarcloud') {
-                    sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar'
-                }
-            }
+       stage('Build Docker Image') {
+             steps {
+                 
+                 sh 'docker build -t emispanchal/my_app:1.0.0 .'
+             }
         }
-         stage('Unit Test') {
-            steps {
-                sh 'mvn test'
-            }
+         stage('Push Docker Image'){
+             steps {
+                 withCredentials([string(credentialsId: 'docker_pwd', variable: 'DockerHubPwd')]) {
+                 sh 'docker login -u emispanchal -p ${DockerHubPwd}'
         }
-
-         stage('Package') {
-            steps {
-                sh 'mvn package'
-            }
-        }
-    }
-
-    post {
-        always {
-            echo 'ALL GOOD '
-        }
-    }
+                 sh 'docker push emispanchal/my_app:1.0.0'
+             }
+         }
 
 
 }
