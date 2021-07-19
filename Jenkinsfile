@@ -1,18 +1,10 @@
 pipeline {
     agent any
-    environment {
-        SONAR_TOKEN= 'e5ad80ddd4802f3096d3e3d58909f196e81f69ae'
-        APP_HOME='/home/app'
-        PRAGRA_BATCH='devs'
-    }
+   
     options { 
         quietPeriod(30) 
     }
-    parameters { 
-            choice(name: 'ENV_TO_DEPLOY', 
-            choices: ['ST', 'UAT', 'STAGING'], description: 'Select a Env to deploy') 
-
-             booleanParam(name: 'RUN', defaultValue: true, description: 'SELECT TO RUN')
+    
     }
     triggers {
         pollSCM('* * * * *')
