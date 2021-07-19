@@ -23,9 +23,9 @@ pipeline{
                 checkout scm
             }
         }
-        stage('Compile') {
-            steps {
-                sh 'mvn compile'
+       stage ('Maven Package'){
+            steps{
+                sh 'mvn package'
             }
         }
        stage('Build Docker Image') {
