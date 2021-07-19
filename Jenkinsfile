@@ -30,8 +30,9 @@ pipeline{
         }
        stage('Build Docker Image') {
              steps {
-                 sh 'docker login -u emispanchal -p "Panchal@09"'
+                 sh 'docker login -u emispanchal -p "Panchal@09"' {
                  sh 'docker build -t emispanchal/my_app:1.0.0 .'
+                 }
              }
         }
         
