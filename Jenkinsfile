@@ -2,7 +2,8 @@ pipeline{
     agent any
    
     options { 
-        quietPeriod(10) 
+        quietPeriod(30) 
+        buildDiscarder(logRotator(numToKeepStr: '3',daysToKeepStr: '3'
     }
     
     }
