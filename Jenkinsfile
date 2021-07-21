@@ -42,8 +42,16 @@ pipeline{
                  sh 'docker push emispanchal/my_app:1.0.0'
              }
          }
-         
-
-}
-
-}
+        
+        stage('Run Container On Dev Server'){
+            environment { 
+                dockerRUN = 'sh /home/ubuntu/dockerRUN.sh'
+             steps {
+                sshagent(['dev_server']) {
+                    sh "ssh -o StrictHostKeyChecking=no emispanchal@172.31.4.1 ${dockerRUN}"
+    
+              }
+            }
+         }
+       }
+    }
