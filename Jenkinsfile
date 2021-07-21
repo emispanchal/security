@@ -50,7 +50,7 @@ pipeline{
              steps {
                 sshagent(['dev_server']) {
                     sh "ssh -o StrictHostKeyChecking=no emispanchal@172.31.4.1 ${dockerRUN}"
-                
+                }
               
             }
          }
