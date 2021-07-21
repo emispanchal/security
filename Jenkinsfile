@@ -48,8 +48,8 @@ pipeline{
                 dockerRUN = 'sh /home/ubuntu/dockerRUN.sh'
                 }
              steps {
-                sshagent(['dev_server']) {
-                    sh "ssh -o StrictHostKeyChecking=no emispanchal@172.31.4.1 ${dockerRUN}"
+               sshagent(['dev_server']) {
+                    sh "ssh -o StrictHostKeyChecking=no ubuntu@172.31.4.1 ${dockerRUN}"
                 }
               
             }
