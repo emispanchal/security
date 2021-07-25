@@ -46,7 +46,7 @@ pipeline{
         stage('Run Container On Dev Server'){
            
             environment {
-               def dockerRUN = 'docker run -p 8080:8080 -d --name my-app emispanchal/my_app:1.0.0'
+               def dockerRUN = 'docker run -p 8080:8080 -d emispanchal/my_app:1.0.0'
             }
               
              steps {
