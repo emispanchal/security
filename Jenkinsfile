@@ -44,9 +44,9 @@ pipeline{
          }
         
         stage('Run Container On Dev Server'){
-            environment { 
-                dockerRUN = 'sh /home/ubuntu/dockerRUN.sh'
-                }
+           
+               def dockerRUN = 'docker run -p 8080:8080 -d -name my_app emispanchal/my_app:1.0.0'
+              
              steps {
                sshagent(['dev-server']) {
                     sh "ssh -o StrictHostKeyChecking=no ubuntu@172.31.32.139 ${dockerRUN}"
