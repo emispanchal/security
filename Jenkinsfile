@@ -45,7 +45,9 @@ pipeline{
         
         stage('Run Container On Dev Server'){
            
+            environment {
                def dockerRUN = 'docker run -p 8080:8080 -d -name my_app emispanchal/my_app:1.0.0'
+            }
               
              steps {
                sshagent(['dev-server']) {
